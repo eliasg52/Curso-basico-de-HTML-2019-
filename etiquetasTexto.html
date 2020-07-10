@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etiquetas a nivel de texto</title>
+  </head>
+  <body>
+    <header>
+      <!-- Contenido de la cabecera -->
+    </header>
+
+    <!-- Contenido principal de la pag -->
+    <main>
+      <!-- LINK -->
+      <a href="https://www.google.com">Enlace a Google</a>
+
+      <!-- Etiqueta de enfasis a una o varias palabras dentro de un texto -->
+      <p>Visualizacion de las <em>etiquetas a nivel</em> de texto en HTML</p>
+      <!-- Esto quiere decir que esas palabras son mas importantes para que las entiendan los navegadores,no tiene nada que ver con lo visual -->
+
+      <!-- iMPORTANCIA DE LAS ETIQUETAS
+            TEXTO NORMAL : 0
+            TEXTO CON EM: 1
+            TEXTO CON STRONG: 2
+        -->
+
+      <p>
+        <!-- El navegador interpreta que lo mas importante de este texto es la palabra HTML, el strong vale mas que el em -->
+        Visualizacion de las etiquetas a nivel de texto en <strong>HTML</strong>
+      </p>
+
+      <!-- small -->
+      <p><small>Acepto los terminos de licencia</small></p>
+
+      <!-- cite y q -->
+      <p>
+        Como dijo Edward Norton en <cite>American History X</cite>
+        <q>
+          El odio es un lastre, la vida es muy corta para estar siempre
+          enojado</q
+        >
+      </p>
+
+      <!-- code -->
+      <code>
+        const funcion1 = () => { codigo a ejecutar }
+      </code>
+
+      <!-- sup y sub -->
+      <p>La formula del agua es H<sub>2</sub>O</p>
+      <p>2<sup>3</sup>es igual a: 8</p>
+
+      <!-- span -->
+      <span class="hambur"
+        >Icono del menu de hamburguesa(se visualizara en CSS)</span
+      >
+
+      <!-- br, salto de linea -->
+      <p>
+        Lorem ipsum dolor sit amet consectetur <br />
+        adipisicing elit. Praesentium, necessitatibus? Itaque, natus obcaecati.
+        Maiores minus voluptatibus
+      </p>
+
+      <!-- wbr, salto de linea opcional -->
+      <p>Fraselargasinespaciopara<wbr />versaltodelineasopcionales</p>
+    </main>
+  </body>
+</html>
