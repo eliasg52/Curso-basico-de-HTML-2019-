@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- atributo de internacionalizacion lang, dir -->
+<!-- auto busca el idioma automaticamente, ltr de izquierda a derecha y rtl al reves -->
+<html lang="en" dir="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contenido embebido y atributos</title>
+  </head>
+  <body>
+    <style>
+      li[data-user='user'] {
+        color: green;
+      }
+
+      li[data-user='admin'] {
+        color: orangered;
+      }
+
+      img {
+        width: 30%;
+      }
+
+      audio {
+      }
+    </style>
+    <header>
+      <!-- todo el contenido de la cabecera -->
+    </header>
+
+    <main>
+      <!-- src es la ruta y alt es por si no carga la imagen -->
+      <img
+        src="https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/726602/726602._SX1600_QL80_TTD_.jpg"
+        alt="Spider-Ham"
+      />
+
+      <!-- src es la ruta y hay que agregar el atributo controls para poder reproducir -->
+      <audio src="spider.mp3" controls muted></audio>
+
+      <video src="https://www.youtube.com/watch?v=i5P8lrgBtcU" controls></video>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13158.66363192078!2d-58.565810549999995!3d-34.46062775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1594412820733!5m2!1ses-419!2sar"
+        width="400"
+        height="300"
+        frameborder="0"
+        style="border: 0;"
+        allowfullscreen=""
+        aria-hidden="false"
+        tabindex="0"
+      ></iframe>
+
+      <!-- atributo role, es para gente ciega o con problemas de visibilidad para que sepan en que seccion de la pagina esta -->
+      <!-- atributo de eventos, onclick, onblur, etc -->
+      <p
+        onclick="alert('asd')"
+        role="parrafo"
+        class="parrafo"
+        id="primer-parrafo"
+        style="color: red;"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora harum
+        officiis necessitatibus sit est obcaecati rerum iure aut consectetur
+        ullam. Tenetur cupiditate expedita accusamus eos itaque est deserunt
+        aperiam tempora!
+      </p>
+
+      <!-- atributos personalizados, puedo poner por ejemplo que los usuarios sean de un color y el admin de otro -->
+      <ul>
+        <li data-user="user">Item 1</li>
+        <li data-user="admin">Item 2</li>
+        <li data-user="user">Item 3</li>
+        <li data-user="user">Item 4</li>
+      </ul>
+    </main>
+  </body>
+</html>
