@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios 1, Inputs</title>
+  </head>
+
+  <style>
+    input,
+    label {
+      display: block;
+    }
+
+    #imagen {
+      height: 100px;
+    }
+  </style>
+  <body>
+    <!-- 
+          form: encierra todos los campos del formulario
+          label: representa el nombre del campo
+          input type: 
+                    text(default): entrada de texto
+                    password: campo para contrasenias (no encripta, solo oculta)
+                    submit: boton para enviar el formulario
+                    button: igual que submit
+                    image: enviar el formulario usando una imagen personalizada
+                    reset: reinicia el form vaciando los campos
+                    radio : crea un boton de radio(circulo)
+                    checkbox: crea un checkbox
+                    color : permite seleccionar un color de la paleta de colores
+                    date: permite seleccionar una fecha del calendario
+                    datetime-local: permite seleccionar fecha y hora
+                    month: permite seleccionar un mes del calendario
+                    week: permite seleccionar una semana
+                    email: sirve para introducir un email con validacion HTML5(insegura), validar tmb desde javascript y el servidor
+                    file: permite subir archivos al servidor
+                    number: permite introducir solo numeros
+                    range: crea un slide para seleccionar un valor numerico
+                    search: crea un campo igual que text pero con semantica de busqueda
+                    tel: creo un campo apra introducir telefono, en celular sale un teclado
+                    time: permite seleccionar una hora
+                    url: crea un campo para introducir un url 
+    -->
+
+    <!-- EXISTEN 2 FORMAS DE ESCRIBIR UN LABEL, LA SEGUNDA ES MEJOR SI QUIERO DARLE UN ESTILO POR SEPARADO AL ID Y AL LABEL -->
+    <!-- AL PONER EL # EVITAMOS QUE EL FORMULARIO SE COMPORTE POR DEFECTO Y QUE SE REINICIE AL ENVIARLO -->
+    <form action="#">
+      <label
+        >Nombre
+        <input type="text" />
+      </label>
+
+      <label for="nombrearelacionar">Nombre</label>
+      <input type="text" id="nombrearelacionar" />
+
+      <label for="edad">Edad</label>
+      <input type="number" />
+
+      <label for="contrasenia">Password</label>
+      <input type="password" />
+
+      <!-- HAY 3 FORMAS DE CREAR BOTONES PARA ENVIAR EN UN FORMULARIO -->
+      <!-- forma 1, con submit -->
+      <input type="submit" value="Enviar formulario" />
+
+      <!-- forma 2,  con imagen-->
+      <input
+        type="image"
+        src="https://as.com/meristation/imagenes/2019/08/25/noticias/1566717212_191664_1566717436_noticia_normal.jpg"
+        id="imagen"
+      />
+
+      <!-- forma 3, con etiqueta button -->
+      <button>Enviar formulario</button>
+
+      <!-- Resetea todos los campos -->
+      <input type="reset" value="Resetear" />
+    </form>
+
+    <hr />
+
+    <!-- FURMULARIO PARTE 2 -->
+
+    <!-- Al agrupar los 2 con el nombre genero, puedo seleccionar un valor u otro -->
+    <form action="#">
+      <!-- legend seria como el titulo del formulario -->
+      <legend>Seleccione Sexo</legend>
+      <label for="man">Hombre</label>
+      <!-- los relaciono con el id para que al tocar la palabra 'hombre' tmb pueda seleccionar el valor -->
+      <input type="radio" id="man" name="genero" />
+      <label for="woman">Mujer</label>
+      <input type="radio" id="woman" name="genero" />
+      <legend>Seleccione Hobbies</legend>
+      <!-- La diferencia de los radio button con los checkbox, es que estos ultimos se pueden desmarcar -->
+      <label for="html">HTML</label>
+      <input type="checkbox" id="html" />
+      <label for="css">CSS</label>
+      <input type="checkbox" id="css" />
+      <label for="js">Javascript</label>
+      <input type="checkbox" id="js" />
+
+      <!-- input date -->
+      <input type="date" />
+      <input type="time" />
+      <input type="month" />
+      <input type="week" />
+
+      <!-- input color -->
+      <input type="color" />
+
+      <!-- input email -->
+      <input type="email" />
+
+      <!-- input file, no se puede hacer solo de html sino que hay que usar js tambien -->
+      <input type="file" />
+
+      <!-- input range -->
+      <input type="range" min="10" max="100" />
+
+      <!-- input search, se nota el cambio cuando se esta en un celular -->
+      <input type="search" />
+
+      <!--  input datalist, funciona como un filtro y puedo mostrar los valores puestos en option -->
+      <label for="browsers">Elija un navegador</label>
+      <input list="browsers" name="browsers" />
+      <datalist id="browsers">
+        <option value="Chrome"></option>
+        <option value="Firefox"></option>
+        <option value="IE"></option>
+        <option value="Safari"></option>
+      </datalist>
+    </form>
+
+    <hr />
+
+    <!-- SELECT Y TEXTAREA -->
+    <form action="#">
+      <label for="languages">Lenguajes de programacion</label>
+      <select name="" id="languages">
+        <!-- lo que se envia al servidor es el 'value', en este caso html en minuscula -->
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">JS</option>
+      </select>
+
+      <label for="areadetexto">Mensaje</label>
+      <textarea
+        style="resize: none;"
+        name=""
+        id="areadetexto"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <!-- con el resize impido poder modificar el cuadro de texto -->
+    </form>
+
+    <!-- ATRIBUTOS DE FORMULARIOS
+        booleanos: 
+                  required: HAce que un campo sea obligatorio(es recomendado hacer esto desde js)
+                  disabled: desactiva la interraccion con un campo
+                  checked: marca un radio | checkbox por defecto
+                  selected: marca un option por defecto
+                  autofocus: pone el foco automatico en un campo
+                  readonly: hace que el campo sea solo de lectura(parecido al disabled pero se ve diferente esteticamente)
+
+        Otros:
+              maxlenght/minlenght: determina la cantidad maxima o minima de caracteres en un campo
+              min/max: determina el minimo y el maximo en los campos numericos
+              autocomplete=on|off(formulario):permite al navegador autocompleatar con los datos que tiene almacenados
+              placeholder: establece un valor de inicio y se borra al introducir informacion(no son recomendables ya que dsp para dar estilo con css se complica esto mismo)
+
+     -->
+
+    <!-- Fieldset, se usa para agrupar inputs -->
+    <form style="color: red;" action="#" autocomplete="on">
+      <fieldset>
+        <legend>Datos Usuario</legend>
+        <label for="nombre">Nombre</label>
+        <!-- pongo la cantaidad maxima de caracteres que puede haber -->
+        <input type="text" id="nombre" required maxlength="5" />
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" disabled />
+        <label for="edad">Edad</label>
+        <!-- al recargar la pagina, se muestra el valor con el atributo autofocus marcado por defecto -->
+        <input type="text" id="edad" autofocus minlength="3" />
+      </fieldset>
+      <!-- al recargar la pagina, se muestra el valor con el atributo checked marcado por defecto -->
+      <input type="radio" checked />Hombre <input type="radio" />Mujer
+
+      <select name="" id="">
+        <option value="">HTML</option>
+        <!-- al recargar la pagina, se muestra el valor con el atributo selected marcado por defecto -->
+        <option selected value="">CSS</option>
+        <option value="">JS</option>
+      </select>
+      <button>Enviar</button>
+    </form>
+  </body>
+</html>
